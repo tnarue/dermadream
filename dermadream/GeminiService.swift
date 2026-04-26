@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import FirebaseFunctions
 
 // MARK: - Gemini JSON Schema (Codable)
 
@@ -105,10 +104,18 @@ enum GeminiServiceError: LocalizedError {
 // MARK: - Service
 
 final class GeminiService {
-    private let functions: Functions
+    private let session: URLSession
+    private let modelName: String
+    private let baseURL: String
 
-    init(region: String = "us-central1") {
-        self.functions = Functions.functions(region: region)
+    init(
+        session: URLSession = .shared,
+        modelName: String = "gemini-3-flash-preview",
+        baseURL: String = APIConfig.geminiBaseURL
+    ) {
+        self.session = session
+        self.modelName = modelName
+        self.baseURL = baseURL
     }
 
     // MARK: - Product Analysis
@@ -195,52 +202,57 @@ final class GeminiService {
 
     // MARK: - Chat
 
-    /// Sends a Gemini-formatted conversation to the Firebase Cloud Function
+    /// Sends a Gemini-formatted conversation directly to the Gemini REST API
     /// and returns the model's text reply.
-    ///
-    /// The Cloud Function name defaults to `"geminiChat"`. Adjust if your
-    /// deployed function uses a different identifier.
     func sendChat(
         contents: [GeminiContent],
-        functionName: String = "geminiChat"
+        functionName _: String = "geminiChat"
     ) async throws -> String {
         let request = GeminiRequest(contents: contents)
-
-        let encoded: Any
+        let bodyData: Data
         do {
-            let jsonData = try JSONEncoder().encode(request)
-            encoded = try JSONSerialization.jsonObject(with: jsonData)
+            bodyData = try JSONEncoder().encode(request)
         } catch {
             throw GeminiServiceError.decodingFailed("Failed to encode request: \(error.localizedDescription)")
         }
 
-        let result: HTTPSCallableResult
+        let apiKey: String
         do {
-            let callable = functions.httpsCallable(functionName)
-            result = try await callable.call(encoded)
+            apiKey = try APIConfig.apiKeyThrowing()
         } catch {
-            let nsError = error as NSError
-            if nsError.domain == NSURLErrorDomain {
-                throw GeminiServiceError.networkUnavailable
-            }
             throw GeminiServiceError.apiError(error.localizedDescription)
         }
 
-        let responseData: Any = result.data
-        guard JSONSerialization.isValidJSONObject(responseData) else {
-            throw GeminiServiceError.emptyResponse
+        var components = URLComponents(string: "\(baseURL)/\(modelName):generateContent")
+        components?.queryItems = [URLQueryItem(name: "key", value: apiKey)]
+        guard let url = components?.url else {
+            throw GeminiServiceError.apiError("Could not build Gemini URL.")
         }
 
-        let jsonData: Data
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.httpBody = bodyData
+
+        let responseData: Data
+        let response: URLResponse
         do {
-            jsonData = try JSONSerialization.data(withJSONObject: responseData)
+            (responseData, response) = try await session.data(for: urlRequest)
         } catch {
-            throw GeminiServiceError.decodingFailed("Response is not valid JSON: \(error.localizedDescription)")
+            throw GeminiServiceError.networkUnavailable
+        }
+
+        guard let http = response as? HTTPURLResponse else {
+            throw GeminiServiceError.apiError("Gemini response was not HTTP.")
+        }
+        guard (200...299).contains(http.statusCode) else {
+            let body = String(data: responseData, encoding: .utf8) ?? "<non-utf8 body>"
+            throw GeminiServiceError.apiError("Gemini HTTP \(http.statusCode): \(body)")
         }
 
         let geminiResponse: GeminiResponse
         do {
-            geminiResponse = try JSONDecoder().decode(GeminiResponse.self, from: jsonData)
+            geminiResponse = try JSONDecoder().decode(GeminiResponse.self, from: responseData)
         } catch {
             throw GeminiServiceError.decodingFailed(error.localizedDescription)
         }

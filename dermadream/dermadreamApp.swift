@@ -7,7 +7,6 @@
 
 import SwiftUI
 import UIKit
-import FirebaseCore
 
 @main
 struct dermadreamApp: App {
@@ -15,7 +14,6 @@ struct dermadreamApp: App {
     @StateObject private var engine = DermadreamEngine()
 
     init() {
-        FirebaseApp.configure()
         Self.removeNavigationBarHairline()
     }
 

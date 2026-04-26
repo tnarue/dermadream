@@ -627,7 +627,7 @@ final class DermadreamEngine: ObservableObject {
     // MARK: - Chat
 
     /// Appends a user message (with optional image) to the conversation,
-    /// sends the full history to Gemini via Firebase, and appends the reply.
+    /// sends the full history to Gemini, and appends the reply.
     func sendMessage(_ text: String, imageBase64: String? = nil) {
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty || imageBase64 != nil else { return }

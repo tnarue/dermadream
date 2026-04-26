@@ -12,11 +12,6 @@
 		3FB9DB1BE51A42A4952EBED7553EB1CA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE6FB3CA1F4712966E71ED412A37E7 /* SettingsView.swift */; };
 		4CC89B869BC04D338706890C4998B73C /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0E14F779024785BED2982C2AB3A05D /* ChatView.swift */; };
 		673D048C07E2422CB89353A9AE13DAFB /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E561D78B8F848AF8AE52A1579291E8D /* InsightsView.swift */; };
-		730DD9FA2F8E1C7A00445A7D /* FirebaseAI in Frameworks */ = {isa = PBXBuildFile; productRef = 730DD9F92F8E1C7A00445A7D /* FirebaseAI */; };
-		730DD9FC2F8E1C7D00445A7D /* FirebaseAILogic in Frameworks */ = {isa = PBXBuildFile; productRef = 730DD9FB2F8E1C7D00445A7D /* FirebaseAILogic */; };
-		730DD9FE2F8E1C8000445A7D /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 730DD9FD2F8E1C8000445A7D /* FirebaseCore */; };
-		730DDA002F8E1D4200445A7D /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 730DD9FF2F8E1D4200445A7D /* FirebaseFunctions */; };
-		730DDA042F96FDF300445A7D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 730DDA032F96FDED00445A7D /* .gitignore */; };
 		735B2B202F8B520B004DF3C8 /* dermadreamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735B2B1F2F8B520B004DF3C8 /* dermadreamApp.swift */; };
 		735B2B222F8B520B004DF3C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735B2B212F8B520B004DF3C8 /* ContentView.swift */; };
 		735B2B242F8B520D004DF3C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 735B2B232F8B520D004DF3C8 /* Assets.xcassets */; };
@@ -24,7 +19,6 @@
 		735B2B312F8B520D004DF3C8 /* dermadreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735B2B302F8B520D004DF3C8 /* dermadreamTests.swift */; };
 		735B2B3B2F8B520D004DF3C8 /* dermadreamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735B2B3A2F8B520D004DF3C8 /* dermadreamUITests.swift */; };
 		735B2B3D2F8B520D004DF3C8 /* dermadreamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735B2B3C2F8B520D004DF3C8 /* dermadreamUITestsLaunchTests.swift */; };
-		735B2B4A2F8B5592004DF3C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 735B2B492F8B5592004DF3C8 /* GoogleService-Info.plist */; };
 		769C156E363A40C09714E1C85061DC1D /* DermadreamTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADCB2D55CF54763A5AB456401E98B55 /* DermadreamTheme.swift */; };
 		7F7A9D90D59348CD879AB705C2400A0A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97B514863EB478E93D9F5B2DC715CE4 /* Models.swift */; };
 		8B4083095426403287F67B490482F08C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B76C34CFEE14F9BA11E0658FDA36525 /* WelcomeView.swift */; };
@@ -69,7 +63,6 @@
 		6C0E14F779024785BED2982C2AB3A05D /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		6E561D78B8F848AF8AE52A1579291E8D /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
 		730DDA012F96FDD700445A7D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		730DDA032F96FDED00445A7D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		735B2B1C2F8B520B004DF3C8 /* dermadream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dermadream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		735B2B1F2F8B520B004DF3C8 /* dermadreamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dermadreamApp.swift; sourceTree = "<group>"; };
 		735B2B212F8B520B004DF3C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,7 +73,6 @@
 		735B2B362F8B520D004DF3C8 /* dermadreamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dermadreamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		735B2B3A2F8B520D004DF3C8 /* dermadreamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dermadreamUITests.swift; sourceTree = "<group>"; };
 		735B2B3C2F8B520D004DF3C8 /* dermadreamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dermadreamUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		735B2B492F8B5592004DF3C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7B76C34CFEE14F9BA11E0658FDA36525 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		ABC001000000000000000001 /* GeminiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiService.swift; sourceTree = "<group>"; };
 		ABC002000000000000000001 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
@@ -105,10 +97,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				730DD9FC2F8E1C7D00445A7D /* FirebaseAILogic in Frameworks */,
-				730DD9FE2F8E1C8000445A7D /* FirebaseCore in Frameworks */,
-				730DD9FA2F8E1C7A00445A7D /* FirebaseAI in Frameworks */,
-				730DDA002F8E1D4200445A7D /* FirebaseFunctions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,10 +148,8 @@
 		735B2B1E2F8B520B004DF3C8 /* dermadream */ = {
 			isa = PBXGroup;
 			children = (
-				730DDA032F96FDED00445A7D /* .gitignore */,
 				730DDA012F96FDD700445A7D /* Config.xcconfig */,
 				ABC005000000000000000001 /* Info.plist */,
-				735B2B492F8B5592004DF3C8 /* GoogleService-Info.plist */,
 				735B2B1F2F8B520B004DF3C8 /* dermadreamApp.swift */,
 				735B2B212F8B520B004DF3C8 /* ContentView.swift */,
 				ABC012000000000000000001 /* DermadreamTabBar.swift */,
@@ -308,7 +294,6 @@
 			);
 			mainGroup = 735B2B132F8B520B004DF3C8;
 			packageReferences = (
-				735B2B4E2F8DCFA7004DF3C8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 735B2B1D2F8B520B004DF3C8 /* Products */;
 			projectDirPath = "";
@@ -326,10 +311,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				730DDA042F96FDF300445A7D /* .gitignore in Resources */,
 				735B2B272F8B520D004DF3C8 /* Preview Assets.xcassets in Resources */,
 				735B2B242F8B520D004DF3C8 /* Assets.xcassets in Resources */,
-				735B2B4A2F8B5592004DF3C8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,39 +683,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		735B2B4E2F8DCFA7004DF3C8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 12.12.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		730DD9F92F8E1C7A00445A7D /* FirebaseAI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 735B2B4E2F8DCFA7004DF3C8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAI;
-		};
-		730DD9FB2F8E1C7D00445A7D /* FirebaseAILogic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 735B2B4E2F8DCFA7004DF3C8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAILogic;
-		};
-		730DD9FD2F8E1C8000445A7D /* FirebaseCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 735B2B4E2F8DCFA7004DF3C8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCore;
-		};
-		730DD9FF2F8E1D4200445A7D /* FirebaseFunctions */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 735B2B4E2F8DCFA7004DF3C8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFunctions;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 735B2B142F8B520B004DF3C8 /* Project object */;
 }
