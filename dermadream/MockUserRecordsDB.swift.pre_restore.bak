@@ -1,0 +1,256 @@
+//
+//  MockUserRecordsDB.swift
+//  dermadream
+//
+//  In-memory stand-in for a MongoDB connection.
+//  Database: "dermadream", Collection: "user_records".
+//
+//  Wrapped in an actor so it is safe to access from any async context.
+//  Swap the internal storage for a real MongoDB driver (or a networked
+//  backend) without changing the call sites in TargetProductAnalysisService.
+//
+
+import Foundation
+
+// MARK: - Schema
+
+/// Matches a single document in the `user_records` collection.
+struct UserRecord: Codable, Equatable, Identifiable {
+    var id: String { userId }
+    let userId: String
+    let skinBaseline: String
+    let knownAllergens: [String]
+    var history: [ProductReactionRecord]
+    /// Full routine log (current + stopped) — source of truth for Product Check “Your shelf”.
+    var routineLog: [RoutineEntry]
+    /// Per–routine-line shelf risk: `RoutineEntry.id` (uuid string) → `-1` = not yet scored from
+    /// acute analysis; `0...100` = score (e.g. from `AcuteIrritationReport.suspectedProducts`).
+    var routineEntryRiskById: [String: Int]
+
+    enum CodingKeys: String, CodingKey {
+        case userId
+        case skinBaseline
+        case knownAllergens
+        case history
+        case routineLog
+        case routineEntryRiskById
+    }
+
+    init(
+        userId: String,
+        skinBaseline: String,
+        knownAllergens: [String],
+        history: [ProductReactionRecord],
+        routineLog: [RoutineEntry] = [],
+        routineEntryRiskById: [String: Int] = [:]
+    ) {
+        self.userId = userId
+        self.skinBaseline = skinBaseline
+        self.knownAllergens = knownAllergens
+        self.history = history
+        self.routineLog = routineLog
+        self.routineEntryRiskById = routineEntryRiskById
+    }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        userId = try c.decode(String.self, forKey: .userId)
+        skinBaseline = try c.decode(String.self, forKey: .skinBaseline)
+        knownAllergens = try c.decode([String].self, forKey: .knownAllergens)
+        history = try c.decode([ProductReactionRecord].self, forKey: .history)
+        routineLog = try c.decodeIfPresent([RoutineEntry].self, forKey: .routineLog) ?? []
+        routineEntryRiskById = try c.decodeIfPresent([String: Int].self, forKey: .routineEntryRiskById) ?? [:]
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var c = encoder.container(keyedBy: CodingKeys.self)
+        try c.encode(userId, forKey: .userId)
+        try c.encode(skinBaseline, forKey: .skinBaseline)
+        try c.encode(knownAllergens, forKey: .knownAllergens)
+        try c.encode(history, forKey: .history)
+        try c.encode(routineLog, forKey: .routineLog)
+        try c.encode(routineEntryRiskById, forKey: .routineEntryRiskById)
+    }
+}
+
+/// One row of the user's product history array.
+struct ProductReactionRecord: Codable, Equatable, Hashable {
+    let productBrand: String
+    let productName: String
+    /// e.g. "burning", "redness", "itching", "flaking", "none".
+    let reactionType: String
+    let details: String
+
+    enum CodingKeys: String, CodingKey {
+        case productBrand = "product_brand"
+        case productName = "product_name"
+        case reactionType = "reaction_type"
+        case details
+    }
+}
+
+// MARK: - Database errors
+
+enum UserRecordsDBError: LocalizedError {
+    case userNotFound(String)
+
+    var errorDescription: String? {
+        switch self {
+        case .userNotFound(let id):
+            return "No user record found for userId \"\(id)\" in dermadream.user_records."
+        }
+    }
+}
+
+// MARK: - Provider protocol
+
+/// Abstraction over "fetch a user record by id".
+/// `MockUserRecordsDB` (in-memory) and `RemoteUserRecordsService`
+/// (HTTP → MongoDB bridge) both conform, so the rest of the app can
+/// stay oblivious to where the data actually lives.
+protocol UserRecordsProviding: Sendable {
+    func findUserRecord(userId: String) async throws -> UserRecord
+}
+
+extension MockUserRecordsDB: UserRecordsProviding {}
+
+// MARK: - Mock DB
+
+/// Actor-based in-memory store that mimics a MongoDB collection.
+/// Thread-safe by construction; all reads/writes go through the actor.
+actor MockUserRecordsDB {
+    static let shared = MockUserRecordsDB()
+
+    private var collection: [String: UserRecord]
+
+    init(seed: [UserRecord] = MockUserRecordsDB.defaultSeed) {
+        var dict: [String: UserRecord] = [:]
+        for record in seed {
+            dict[record.userId] = record
+        }
+        self.collection = dict
+    }
+
+    /// `db.dermadream.user_records.findOne({ userId })`
+    func findUserRecord(userId: String) async throws -> UserRecord {
+        guard let record = collection[userId] else {
+            throw UserRecordsDBError.userNotFound(userId)
+        }
+        return record
+    }
+
+    /// Upsert — `updateOne({ userId }, { $set: record }, { upsert: true })`.
+    func upsert(_ record: UserRecord) {
+        collection[record.userId] = record
+    }
+
+    /// Replaces the in-memory routine log (mirrors a Mongo `$set: { routineLog: [...] }`).
+    /// Drops `routineEntryRiskById` keys that no longer correspond to a `RoutineEntry.id`.
+    func replaceRoutineLog(_ entries: [RoutineEntry], for userId: String) {
+        let idSet = Set(entries.map { $0.id.uuidString })
+        if let existing = collection[userId] {
+            let pruned = existing.routineEntryRiskById.filter { idSet.contains($0.key) }
+            let updated = UserRecord(
+                userId: existing.userId,
+                skinBaseline: existing.skinBaseline,
+                knownAllergens: existing.knownAllergens,
+                history: existing.history,
+                routineLog: entries,
+                routineEntryRiskById: pruned
+            )
+            collection[userId] = updated
+        } else {
+            collection[userId] = UserRecord(
+                userId: userId,
+                skinBaseline: "Unknown",
+                knownAllergens: [],
+                history: [],
+                routineLog: entries,
+                routineEntryRiskById: [:]
+            )
+        }
+    }
+
+    /// Sets or updates the shelf risk for one routine line (`$set` on a nested field).
+    func setRoutineEntryRisk(_ risk: Int, entryId: UUID, for userId: String) {
+        if let existing = collection[userId] {
+            var map = existing.routineEntryRiskById
+            map[entryId.uuidString] = risk
+            collection[userId] = UserRecord(
+                userId: existing.userId,
+                skinBaseline: existing.skinBaseline,
+                knownAllergens: existing.knownAllergens,
+                history: existing.history,
+                routineLog: existing.routineLog,
+                routineEntryRiskById: map
+            )
+        } else {
+            collection[userId] = UserRecord(
+                userId: userId,
+                skinBaseline: "Unknown",
+                knownAllergens: [],
+                history: [],
+                routineLog: [],
+                routineEntryRiskById: [entryId.uuidString: risk]
+            )
+        }
+    }
+
+    /// Append a new reaction to a user's history array.
+    /// `updateOne({ userId }, { $push: { history: reaction } })`
+    func appendReaction(_ reaction: ProductReactionRecord, for userId: String) throws {
+        guard let existing = collection[userId] else {
+            throw UserRecordsDBError.userNotFound(userId)
+        }
+        let updated = UserRecord(
+            userId: existing.userId,
+            skinBaseline: existing.skinBaseline,
+            knownAllergens: existing.knownAllergens,
+            history: existing.history + [reaction],
+            routineLog: existing.routineLog,
+            routineEntryRiskById: existing.routineEntryRiskById
+        )
+        collection[userId] = updated
+    }
+
+    // MARK: - Seed data
+
+    /// Mirror of `dermadream/mock-db.json`.
+    ///
+    /// The JSON uses a single `product_full_name` field per history entry,
+    /// so we map that verbatim into `productName` and leave `productBrand`
+    /// blank; `TargetProductAnalysisService.combinedProductLabel` handles
+    /// the empty brand and sends just the full name to Gemini — the same
+    /// string shape the barcode flow sends via `products[0].title`.
+    ///
+    /// `severity` is folded into `details` so it survives the trip to
+    /// Gemini through `user_history[].details`.
+    static let defaultSeed: [UserRecord] = [
+        UserRecord(
+            userId: "1",
+            skinBaseline: "Sensitive-Combination",
+            knownAllergens: [],
+            history: [
+                ProductReactionRecord(
+                    productBrand: "",
+                    productName: "The Ordinary Glycolic Acid 7% Toning Solution",
+                    reactionType: "Chemical Irritation",
+                    details: "Severity: High. Intense burning on the cheeks and immediate flare-up of redness."
+                ),
+                ProductReactionRecord(
+                    productBrand: "",
+                    productName: "CeraVe Facial Moisturizing Lotion PM",
+                    reactionType: "None",
+                    details: "Severity: None. Standard daily moisturizer. No negative reaction, skin feels calm."
+                ),
+                ProductReactionRecord(
+                    productBrand: "",
+                    productName: "SkinCeuticals Retinol 0.3",
+                    reactionType: "Retinization",
+                    details: "Severity: Low. Dryness and mild peeling for the first 2 weeks, but no pain or burning."
+                )
+            ],
+            routineLog: AppRoutineSeeds.sampleRoutineLog
+        )
+    ]
+}

@@ -1,0 +1,708 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05EFC9C1BE594CD580CB2B25AC5A553C /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04209C535CA54E8AB132031049A8E54A /* ProductsView.swift */; };
+		19E2AE766F394731A439D8FC1FBBC1C0 /* AnatomySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2983065A6415452AB8D6A837190970D3 /* AnatomySelectionView.swift */; };
+		3FB9DB1BE51A42A4952EBED7553EB1CA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE6FB3CA1F4712966E71ED412A37E7 /* SettingsView.swift */; };
+		4CC89B869BC04D338706890C4998B73C /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0E14F779024785BED2982C2AB3A05D /* ChatView.swift */; };
+		673D048C07E2422CB89353A9AE13DAFB /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E561D78B8F848AF8AE52A1579291E8D /* InsightsView.swift */; };
+		730DD9FA2F8E1C7A00445A7D /* FirebaseAI in Frameworks */ = {isa = PBXBuildFile; productRef = 730DD9F92F8E1C7A00445A7D /* FirebaseAI */; };
+		730DD9FC2F8E1C7D00445A7D /* FirebaseAILogic in Frameworks */ = {isa = PBXBuildFile; productRef = 730DD9FB2F8E1C7D00445A7D /* FirebaseAILogic */; };
+		730DD9FE2F8E1C8000445A7D /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 730DD9FD2F8E1C8000445A7D /* FirebaseCore */; };
+		730DDA002F8E1D4200445A7D /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 730DD9FF2F8E1D4200445A7D /* FirebaseFunctions */; };
+		730DDA022F96FDE100445A7D /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 730DDA012F96FDD700445A7D /* Config.xcconfig */; };
+		730DDA042F96FDF300445A7D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 730DDA032F96FDED00445A7D /* .gitignore */; };
+		735B2B202F8B520B004DF3C8 /* dermadreamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735B2B1F2F8B520B004DF3C8 /* dermadreamApp.swift */; };
+		735B2B222F8B520B004DF3C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735B2B212F8B520B004DF3C8 /* ContentView.swift */; };
+		735B2B242F8B520D004DF3C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 735B2B232F8B520D004DF3C8 /* Assets.xcassets */; };
+		735B2B272F8B520D004DF3C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 735B2B262F8B520D004DF3C8 /* Preview Assets.xcassets */; };
+		735B2B312F8B520D004DF3C8 /* dermadreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735B2B302F8B520D004DF3C8 /* dermadreamTests.swift */; };
+		735B2B3B2F8B520D004DF3C8 /* dermadreamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735B2B3A2F8B520D004DF3C8 /* dermadreamUITests.swift */; };
+		735B2B3D2F8B520D004DF3C8 /* dermadreamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735B2B3C2F8B520D004DF3C8 /* dermadreamUITestsLaunchTests.swift */; };
+		735B2B4A2F8B5592004DF3C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 735B2B492F8B5592004DF3C8 /* GoogleService-Info.plist */; };
+		769C156E363A40C09714E1C85061DC1D /* DermadreamTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADCB2D55CF54763A5AB456401E98B55 /* DermadreamTheme.swift */; };
+		7F7A9D90D59348CD879AB705C2400A0A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97B514863EB478E93D9F5B2DC715CE4 /* Models.swift */; };
+		8B4083095426403287F67B490482F08C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B76C34CFEE14F9BA11E0658FDA36525 /* WelcomeView.swift */; };
+		9597623029794C6386803104DF187A19 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCB39286344D05A3A9C246C66FFC6F /* DashboardView.swift */; };
+		B9A8AE5D565D476E85B4AEC523EB1DDE /* DermadreamEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C21BC2153E412CAD4244D1A7AAC8CA /* DermadreamEngine.swift */; };
+		ABC001000000000000000002 /* GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC001000000000000000001 /* GeminiService.swift */; };
+		ABC002000000000000000002 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC002000000000000000001 /* APIConfig.swift */; };
+		ABC003000000000000000002 /* MockUserRecordsDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC003000000000000000001 /* MockUserRecordsDB.swift */; };
+		ABC004000000000000000002 /* TargetProductAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC004000000000000000001 /* TargetProductAnalysisService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		735B2B2D2F8B520D004DF3C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 735B2B142F8B520B004DF3C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 735B2B1B2F8B520B004DF3C8;
+			remoteInfo = dermadream;
+		};
+		735B2B372F8B520D004DF3C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 735B2B142F8B520B004DF3C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 735B2B1B2F8B520B004DF3C8;
+			remoteInfo = dermadream;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04209C535CA54E8AB132031049A8E54A /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
+		2983065A6415452AB8D6A837190970D3 /* AnatomySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnatomySelectionView.swift; sourceTree = "<group>"; };
+		30AE6FB3CA1F4712966E71ED412A37E7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		42C21BC2153E412CAD4244D1A7AAC8CA /* DermadreamEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermadreamEngine.swift; sourceTree = "<group>"; };
+		6C0E14F779024785BED2982C2AB3A05D /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		6E561D78B8F848AF8AE52A1579291E8D /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
+		730DDA012F96FDD700445A7D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		730DDA032F96FDED00445A7D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		735B2B1C2F8B520B004DF3C8 /* dermadream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dermadream.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		735B2B1F2F8B520B004DF3C8 /* dermadreamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dermadreamApp.swift; sourceTree = "<group>"; };
+		735B2B212F8B520B004DF3C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		735B2B232F8B520D004DF3C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		735B2B262F8B520D004DF3C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		735B2B2C2F8B520D004DF3C8 /* dermadreamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dermadreamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		735B2B302F8B520D004DF3C8 /* dermadreamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dermadreamTests.swift; sourceTree = "<group>"; };
+		735B2B362F8B520D004DF3C8 /* dermadreamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dermadreamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		735B2B3A2F8B520D004DF3C8 /* dermadreamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dermadreamUITests.swift; sourceTree = "<group>"; };
+		735B2B3C2F8B520D004DF3C8 /* dermadreamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dermadreamUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		735B2B492F8B5592004DF3C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7B76C34CFEE14F9BA11E0658FDA36525 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		B97B514863EB478E93D9F5B2DC715CE4 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		EADCB2D55CF54763A5AB456401E98B55 /* DermadreamTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermadreamTheme.swift; sourceTree = "<group>"; };
+		FABCB39286344D05A3A9C246C66FFC6F /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		ABC001000000000000000001 /* GeminiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiService.swift; sourceTree = "<group>"; };
+		ABC002000000000000000001 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
+		ABC003000000000000000001 /* MockUserRecordsDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserRecordsDB.swift; sourceTree = "<group>"; };
+		ABC004000000000000000001 /* TargetProductAnalysisService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetProductAnalysisService.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		735B2B192F8B520B004DF3C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				730DD9FC2F8E1C7D00445A7D /* FirebaseAILogic in Frameworks */,
+				730DD9FE2F8E1C8000445A7D /* FirebaseCore in Frameworks */,
+				730DD9FA2F8E1C7A00445A7D /* FirebaseAI in Frameworks */,
+				730DDA002F8E1D4200445A7D /* FirebaseFunctions in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		735B2B292F8B520D004DF3C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		735B2B332F8B520D004DF3C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		730DD9F82F8E1C7A00445A7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		735B2B132F8B520B004DF3C8 = {
+			isa = PBXGroup;
+			children = (
+				735B2B1E2F8B520B004DF3C8 /* dermadream */,
+				735B2B2F2F8B520D004DF3C8 /* dermadreamTests */,
+				735B2B392F8B520D004DF3C8 /* dermadreamUITests */,
+				730DD9F82F8E1C7A00445A7D /* Frameworks */,
+				735B2B1D2F8B520B004DF3C8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		735B2B1D2F8B520B004DF3C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				735B2B1C2F8B520B004DF3C8 /* dermadream.app */,
+				735B2B2C2F8B520D004DF3C8 /* dermadreamTests.xctest */,
+				735B2B362F8B520D004DF3C8 /* dermadreamUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		735B2B1E2F8B520B004DF3C8 /* dermadream */ = {
+			isa = PBXGroup;
+			children = (
+				730DDA032F96FDED00445A7D /* .gitignore */,
+				730DDA012F96FDD700445A7D /* Config.xcconfig */,
+				735B2B492F8B5592004DF3C8 /* GoogleService-Info.plist */,
+				735B2B1F2F8B520B004DF3C8 /* dermadreamApp.swift */,
+				735B2B212F8B520B004DF3C8 /* ContentView.swift */,
+				EADCB2D55CF54763A5AB456401E98B55 /* DermadreamTheme.swift */,
+				B97B514863EB478E93D9F5B2DC715CE4 /* Models.swift */,
+				42C21BC2153E412CAD4244D1A7AAC8CA /* DermadreamEngine.swift */,
+				ABC001000000000000000001 /* GeminiService.swift */,
+				ABC002000000000000000001 /* APIConfig.swift */,
+				ABC003000000000000000001 /* MockUserRecordsDB.swift */,
+				ABC004000000000000000001 /* TargetProductAnalysisService.swift */,
+				7B76C34CFEE14F9BA11E0658FDA36525 /* WelcomeView.swift */,
+				2983065A6415452AB8D6A837190970D3 /* AnatomySelectionView.swift */,
+				6C0E14F779024785BED2982C2AB3A05D /* ChatView.swift */,
+				FABCB39286344D05A3A9C246C66FFC6F /* DashboardView.swift */,
+				6E561D78B8F848AF8AE52A1579291E8D /* InsightsView.swift */,
+				04209C535CA54E8AB132031049A8E54A /* ProductsView.swift */,
+				30AE6FB3CA1F4712966E71ED412A37E7 /* SettingsView.swift */,
+				735B2B232F8B520D004DF3C8 /* Assets.xcassets */,
+				735B2B252F8B520D004DF3C8 /* Preview Content */,
+			);
+			path = dermadream;
+			sourceTree = "<group>";
+		};
+		735B2B252F8B520D004DF3C8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				735B2B262F8B520D004DF3C8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		735B2B2F2F8B520D004DF3C8 /* dermadreamTests */ = {
+			isa = PBXGroup;
+			children = (
+				735B2B302F8B520D004DF3C8 /* dermadreamTests.swift */,
+			);
+			path = dermadreamTests;
+			sourceTree = "<group>";
+		};
+		735B2B392F8B520D004DF3C8 /* dermadreamUITests */ = {
+			isa = PBXGroup;
+			children = (
+				735B2B3A2F8B520D004DF3C8 /* dermadreamUITests.swift */,
+				735B2B3C2F8B520D004DF3C8 /* dermadreamUITestsLaunchTests.swift */,
+			);
+			path = dermadreamUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		735B2B1B2F8B520B004DF3C8 /* dermadream */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 735B2B402F8B520D004DF3C8 /* Build configuration list for PBXNativeTarget "dermadream" */;
+			buildPhases = (
+				735B2B182F8B520B004DF3C8 /* Sources */,
+				735B2B192F8B520B004DF3C8 /* Frameworks */,
+				735B2B1A2F8B520B004DF3C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dermadream;
+			productName = dermadream;
+			productReference = 735B2B1C2F8B520B004DF3C8 /* dermadream.app */;
+			productType = "com.apple.product-type.application";
+		};
+		735B2B2B2F8B520D004DF3C8 /* dermadreamTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 735B2B432F8B520D004DF3C8 /* Build configuration list for PBXNativeTarget "dermadreamTests" */;
+			buildPhases = (
+				735B2B282F8B520D004DF3C8 /* Sources */,
+				735B2B292F8B520D004DF3C8 /* Frameworks */,
+				735B2B2A2F8B520D004DF3C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				735B2B2E2F8B520D004DF3C8 /* PBXTargetDependency */,
+			);
+			name = dermadreamTests;
+			productName = dermadreamTests;
+			productReference = 735B2B2C2F8B520D004DF3C8 /* dermadreamTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		735B2B352F8B520D004DF3C8 /* dermadreamUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 735B2B462F8B520D004DF3C8 /* Build configuration list for PBXNativeTarget "dermadreamUITests" */;
+			buildPhases = (
+				735B2B322F8B520D004DF3C8 /* Sources */,
+				735B2B332F8B520D004DF3C8 /* Frameworks */,
+				735B2B342F8B520D004DF3C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				735B2B382F8B520D004DF3C8 /* PBXTargetDependency */,
+			);
+			name = dermadreamUITests;
+			productName = dermadreamUITests;
+			productReference = 735B2B362F8B520D004DF3C8 /* dermadreamUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		735B2B142F8B520B004DF3C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					735B2B1B2F8B520B004DF3C8 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					735B2B2B2F8B520D004DF3C8 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 735B2B1B2F8B520B004DF3C8;
+					};
+					735B2B352F8B520D004DF3C8 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 735B2B1B2F8B520B004DF3C8;
+					};
+				};
+			};
+			buildConfigurationList = 735B2B172F8B520B004DF3C8 /* Build configuration list for PBXProject "dermadream" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 735B2B132F8B520B004DF3C8;
+			packageReferences = (
+				735B2B4E2F8DCFA7004DF3C8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = 735B2B1D2F8B520B004DF3C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				735B2B1B2F8B520B004DF3C8 /* dermadream */,
+				735B2B2B2F8B520D004DF3C8 /* dermadreamTests */,
+				735B2B352F8B520D004DF3C8 /* dermadreamUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		735B2B1A2F8B520B004DF3C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				730DDA042F96FDF300445A7D /* .gitignore in Resources */,
+				730DDA022F96FDE100445A7D /* Config.xcconfig in Resources */,
+				735B2B272F8B520D004DF3C8 /* Preview Assets.xcassets in Resources */,
+				735B2B242F8B520D004DF3C8 /* Assets.xcassets in Resources */,
+				735B2B4A2F8B5592004DF3C8 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		735B2B2A2F8B520D004DF3C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		735B2B342F8B520D004DF3C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		735B2B182F8B520B004DF3C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				769C156E363A40C09714E1C85061DC1D /* DermadreamTheme.swift in Sources */,
+				7F7A9D90D59348CD879AB705C2400A0A /* Models.swift in Sources */,
+				B9A8AE5D565D476E85B4AEC523EB1DDE /* DermadreamEngine.swift in Sources */,
+				ABC001000000000000000002 /* GeminiService.swift in Sources */,
+				ABC002000000000000000002 /* APIConfig.swift in Sources */,
+				ABC003000000000000000002 /* MockUserRecordsDB.swift in Sources */,
+				ABC004000000000000000002 /* TargetProductAnalysisService.swift in Sources */,
+				8B4083095426403287F67B490482F08C /* WelcomeView.swift in Sources */,
+				19E2AE766F394731A439D8FC1FBBC1C0 /* AnatomySelectionView.swift in Sources */,
+				4CC89B869BC04D338706890C4998B73C /* ChatView.swift in Sources */,
+				9597623029794C6386803104DF187A19 /* DashboardView.swift in Sources */,
+				673D048C07E2422CB89353A9AE13DAFB /* InsightsView.swift in Sources */,
+				05EFC9C1BE594CD580CB2B25AC5A553C /* ProductsView.swift in Sources */,
+				3FB9DB1BE51A42A4952EBED7553EB1CA /* SettingsView.swift in Sources */,
+				735B2B222F8B520B004DF3C8 /* ContentView.swift in Sources */,
+				735B2B202F8B520B004DF3C8 /* dermadreamApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		735B2B282F8B520D004DF3C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				735B2B312F8B520D004DF3C8 /* dermadreamTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		735B2B322F8B520D004DF3C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				735B2B3D2F8B520D004DF3C8 /* dermadreamUITestsLaunchTests.swift in Sources */,
+				735B2B3B2F8B520D004DF3C8 /* dermadreamUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		735B2B2E2F8B520D004DF3C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 735B2B1B2F8B520B004DF3C8 /* dermadream */;
+			targetProxy = 735B2B2D2F8B520D004DF3C8 /* PBXContainerItemProxy */;
+		};
+		735B2B382F8B520D004DF3C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 735B2B1B2F8B520B004DF3C8 /* dermadream */;
+			targetProxy = 735B2B372F8B520D004DF3C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		735B2B3E2F8B520D004DF3C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		735B2B3F2F8B520D004DF3C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		735B2B412F8B520D004DF3C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"dermadream/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dermadream.dermadream;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		735B2B422F8B520D004DF3C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"dermadream/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dermadream.dermadream;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		735B2B442F8B520D004DF3C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dermadream.dermadreamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dermadream.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dermadream";
+			};
+			name = Debug;
+		};
+		735B2B452F8B520D004DF3C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dermadream.dermadreamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dermadream.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dermadream";
+			};
+			name = Release;
+		};
+		735B2B472F8B520D004DF3C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dermadream.dermadreamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = dermadream;
+			};
+			name = Debug;
+		};
+		735B2B482F8B520D004DF3C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dermadream.dermadreamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = dermadream;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		735B2B172F8B520B004DF3C8 /* Build configuration list for PBXProject "dermadream" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				735B2B3E2F8B520D004DF3C8 /* Debug */,
+				735B2B3F2F8B520D004DF3C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		735B2B402F8B520D004DF3C8 /* Build configuration list for PBXNativeTarget "dermadream" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				735B2B412F8B520D004DF3C8 /* Debug */,
+				735B2B422F8B520D004DF3C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		735B2B432F8B520D004DF3C8 /* Build configuration list for PBXNativeTarget "dermadreamTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				735B2B442F8B520D004DF3C8 /* Debug */,
+				735B2B452F8B520D004DF3C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		735B2B462F8B520D004DF3C8 /* Build configuration list for PBXNativeTarget "dermadreamUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				735B2B472F8B520D004DF3C8 /* Debug */,
+				735B2B482F8B520D004DF3C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		735B2B4E2F8DCFA7004DF3C8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		730DD9F92F8E1C7A00445A7D /* FirebaseAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 735B2B4E2F8DCFA7004DF3C8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAI;
+		};
+		730DD9FB2F8E1C7D00445A7D /* FirebaseAILogic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 735B2B4E2F8DCFA7004DF3C8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAILogic;
+		};
+		730DD9FD2F8E1C8000445A7D /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 735B2B4E2F8DCFA7004DF3C8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		730DD9FF2F8E1D4200445A7D /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 735B2B4E2F8DCFA7004DF3C8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 735B2B142F8B520B004DF3C8 /* Project object */;
+}
